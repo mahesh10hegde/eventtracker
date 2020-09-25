@@ -12,6 +12,7 @@ class HomePage extends Component{
     }
   }
   handleLogin = (e)=>{
+    
     let pwd=this.state.pwdVal;
     let username=this.state.nameVal;
     console.log(pwd,username);
@@ -25,12 +26,12 @@ class HomePage extends Component{
         }).then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            if(data[0].token){
+            if(data.length&&data[0].token){
                 
               console.log('success')
-             
+              this.props.history.push('/dashboard');
             }else{
-                this.setState({"loginError":true});
+                this.setState({"loginError":true,errorMessage:"Wrong user name or password"});
             }
           })
           .catch(err=>{
