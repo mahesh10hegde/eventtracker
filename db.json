@@ -1,19 +1,20 @@
 {
-  
-    
-      "users": [
-        {
-          "id": 1,
-          "userName": "mahesh",
-          "passWord": "mahesh",
-          "token":"rsg4wq5j4w54wjtesdhre5634e6"
-        },
-        {
-          "id": 2,
-          "userName": "test",
-          "passWord": "test",
-          "token":"rsg4wq5j4w54wjtesdhre5634e6"
-        }
-      ]
-   
+  "users":[
+      {"userName":"test","passWord":"test","token":"rsgwragw4arq3r325svrs1314wef4"},
+      {"userName":"mahesh","passWord":"mahesh","token":"rsgwragw4arq3r325svrs1314wef4"}
+  ],
+  "events":[
+      {"id":1,
+       "name":"meeting 1",
+       "description": "erewrg ergewrg",
+       "attendees":"a@b.com,d@c.com",
+       "eventDate":"29-09-2020"
+      },
+      {"id":2,
+      "name":"meeting 2",
+      "description": "erewrg ergewrg",
+      "attendees":"a@b.com,d@c.com",
+      "eventDate":"30-09-2020"
+      }
+  ]
 }

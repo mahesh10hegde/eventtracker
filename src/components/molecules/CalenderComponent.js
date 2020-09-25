@@ -13,6 +13,7 @@ export default function CalenderComponent() {
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
+  const [eventsData, getEventsData] = useState();
 
   useEffect(() => {
     setDay(date.getDate());
@@ -20,8 +21,28 @@ export default function CalenderComponent() {
     setMonth(date.getMonth());
     setYear(date.getFullYear());
     setStartDay(getStartDayOfMonth(date));
+    getEventsData(getSchedules());
   }, [date]);
 
+  function getSchedules(){
+    fetch('http://localhost:3000/events', {
+            method: 'GET'
+        }).then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            if(data.length){
+                
+              console.log('success')
+              return data;
+            }else{
+               return [];
+            }
+          })
+          .catch(err=>{
+            console.error('Error:', err);
+            this.setState({"loginError":true});
+          });
+  }
   function getStartDayOfMonth(date) {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   }
