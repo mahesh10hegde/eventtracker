@@ -1,0 +1,31 @@
+body{
+    background-color: #fff !important;
+}
+.dashboard-container{
+   width: 100%;
+   background-color: #fff;
+   height: 100%;
+}
+.month-calender{
+    width: 350px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    height: 350px;
+}
+
+.one-seventh{
+    float: left;
+    width: 14.28%;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+    text-align: center;
+    box-sizing: border-box;
+}
+.weekday{
+    padding: 10px 5px;
+    background-color: #ccc;
+}
+.day{
+    padding: 10px 5px;
+    cursor: pointer;
+}
