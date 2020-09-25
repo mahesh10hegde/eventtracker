@@ -1,0 +1,37 @@
+.event-creation-container{
+    width:1024px;
+    margin:0 auto;
+}
+.event-creation-form{
+    width: 100%;
+    margin: 10px 0;
+}
+.label-wrap,.button-wrap{
+    margin: 10px;
+}
+.label-wrap label{
+    display: block;
+    margin:  0 0 10px 0;
+}
+.label-wrap input{
+    padding: 10px 0;
+    border-radius: 10px;
+}
+.label-wrap textarea{
+    width:50%;
+    height: 50px;
+}
+.submit-btn{
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: green;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 0;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
