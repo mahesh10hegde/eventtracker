@@ -13,7 +13,7 @@ export default function CalenderComponent() {
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
-  const [eventsData, getEventsData] = useState();
+  const [eventsData, getEventsData] = useState(getSchedules());
 
   useEffect(() => {
     setDay(date.getDate());
@@ -40,7 +40,6 @@ export default function CalenderComponent() {
           })
           .catch(err=>{
             console.error('Error:', err);
-            this.setState({"loginError":true});
           });
   }
   function getStartDayOfMonth(date) {
@@ -54,15 +53,21 @@ export default function CalenderComponent() {
   const days = isLeapYear ? DAYS_LEAP : DAYS;
   var daysArr = [];
   for(let i=0;i<days[month] + (startDay - 1);i++){
+    var appointments=[];
+    // for(let j=0;j<eventsData.length;j++){
+    //   if(eventsData[j].eventDate.split("-")[0]===i - (startDay - 2)){
+    //     appointments.push(eventsData[j])
+    //   };
+    // }
     if(i - (startDay - 2)>0){
       daysArr.push({
         id:i,
-        appointments:[]
+        appointments:appointments
       });
     }else{
       daysArr.push({
         id:"prevMOnth"+i,
-        appointments:[]
+        appointments:appointments
       });
     }
   }
