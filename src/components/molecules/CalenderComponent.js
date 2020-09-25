@@ -36,18 +36,12 @@ export default function CalenderComponent() {
     if(i - (startDay - 2)>0){
       daysArr.push({
         id:i,
-        appointments:[{
-          id:"",
-          eventName:"dummy event"+i
-        }]
+        appointments:[]
       });
     }else{
       daysArr.push({
         id:"prevMOnth"+i,
-        appointments:[{
-          id:"",
-          eventName:""
-        }]
+        appointments:[]
       });
     }
   }
@@ -70,11 +64,12 @@ export default function CalenderComponent() {
         {
           daysArr.map((item, index) => {
             const d = index - (startDay - 2);
+            
             return (
               <div className="one-seventh day has-event"
                 key={index} id={d>0?d:"prevMonth"+(index+1)}
               >
-                { d>0 && item.appointments.length>0 &&
+                { 
                     item.appointments.map((val)=>{
                       return(
 
