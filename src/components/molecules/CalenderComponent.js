@@ -7,7 +7,7 @@ export default function CalenderComponent() {
   const DAYS_OF_THE_WEEK = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
   const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
-  const today = new Date("2011","09");
+  const today = new Date();
   const [date, setDate] = useState(today);
   const [day, setDay] = useState(date.getDate());
   const [month, setMonth] = useState(date.getMonth());
@@ -31,7 +31,27 @@ export default function CalenderComponent() {
   }
 
   const days = isLeapYear ? DAYS_LEAP : DAYS;
-
+  var daysArr = [];
+  for(let i=0;i<days[month] + (startDay - 1);i++){
+    if(i - (startDay - 2)>0){
+      daysArr.push({
+        id:i,
+        appointments:[{
+          id:"",
+          eventName:"dummy event"+i
+        }]
+      });
+    }else{
+      daysArr.push({
+        id:"prevMOnth"+i,
+        appointments:[{
+          id:"",
+          eventName:""
+        }]
+      });
+    }
+  }
+  console.log('initial array',daysArr);
   return (
     <div className="calendar-container">
       <div>
@@ -47,15 +67,23 @@ export default function CalenderComponent() {
             <strong>{d}</strong>
           </div>
         ))}
-        {Array(days[month] + (startDay - 1))
-          .fill(null)
-          .map((_, index) => {
+        {
+          daysArr.map((item, index) => {
             const d = index - (startDay - 2);
             return (
-              <div className="one-seventh day"
+              <div className="one-seventh day has-event"
                 key={index} id={d>0?d:"prevMonth"+(index+1)}
               >
-                {d > 0 ? d : ''}
+                { d>0 && item.appointments.length>0 &&
+                    item.appointments.map((val)=>{
+                      return(
+
+                       <div  key={val.id}> <span>{d}</span>
+                      <span>{val.eventName}</span>
+                      </div>
+                      )
+                    })
+                  }
               </div>
             );
           })}

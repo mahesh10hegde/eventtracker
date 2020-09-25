@@ -42,3 +42,6 @@ body{
 .calendar-container{
     margin: 10px 0;
 }
+.has-event{
+    background-color: lightblue;
+}
