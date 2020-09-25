@@ -64,24 +64,38 @@ export default function CalenderComponent() {
         {
           daysArr.map((item, index) => {
             const d = index - (startDay - 2);
-            
-            return (
+            if(item.appointments.length){
+              return (
               
-              <div className="one-seventh day"
-                key={index} id={d>0?d:"prevMonth"+(index+1)}
-              >
-                { 
-                   item.appointments.length? item.appointments.map((val)=>{
-                      return(
-
-                       <div  key={val.id}> <span>{d}</span>
-                      <span>{val.eventName}</span>
-                      </div>
-                      )
-                    }):d>0?d:''
+                <div className="one-seventh day has-event"
+                  key={index} id={d>0?d:"prevMonth"+(index+1)}
+                >
+                  { 
+                     item.appointments.map((val)=>{
+                        return(
+  
+                         <div  key={val.id}> <span>{d}</span>
+                        <span>{val.eventName}</span>
+                        </div>
+                        )
+                      })
+                    }
+                </div>
+              );
+            }
+            else{
+              return (
+              
+                <div className="one-seventh day"
+                  key={index} id={d>0?d:"prevMonth"+(index+1)}
+                >
+                  { 
+                    d>0?d:''
                   }
-              </div>
-            );
+                </div>
+              );
+            }
+           
           })}
       </div>
     </div>
