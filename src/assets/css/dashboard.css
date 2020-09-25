@@ -7,10 +7,11 @@ body{
    height: 100%;
 }
 .month-calender{
-    width: 350px;
+    width: 1024px;
     margin: 10px auto;
     border: 1px solid #ccc;
-    height: 350px;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .one-seventh{
@@ -26,6 +27,18 @@ body{
     background-color: #ccc;
 }
 .day{
-    padding: 10px 5px;
+    padding: 5% 7%;
     cursor: pointer;
+    height: 100px;
+}
+.one-seventh.day:nth-child(7n-6) {
+    border-left: 1px solid #333;
+}
+.calendar-header{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.calendar-container{
+    margin: 10px 0;
 }

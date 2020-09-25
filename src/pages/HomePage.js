@@ -7,7 +7,8 @@ class HomePage extends Component{
     this.state={
         loginError:false,
         nameVal:'',
-        pwdVal:''
+        pwdVal:'',
+        errorMessage:''
     }
   }
   handleLogin = (e)=>{
@@ -17,21 +18,17 @@ class HomePage extends Component{
     let data={"email":username,"password":pwd};
     e.preventDefault();
     if(!username || !pwd){
-        this.setState({"loginError":true})
+        this.setState({"loginError":true,errorMessage:"Password/username can not be empty"});
     }else{
-        fetch('https://reqres.in/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+        fetch('http://localhost:3000/users?userName='+username+'&passWord='+pwd, {
+            method: 'GET'
         }).then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            if(data.token){
+            if(data[0].token){
                 
-              
-              this.props.history.push("/dashboard");
+              console.log('success')
+             
             }else{
                 this.setState({"loginError":true});
             }
@@ -52,7 +49,7 @@ class HomePage extends Component{
     return ( 
             <div className="main">
                 <p className="header">Login page</p>
-                {this.state.loginError?<p className="error">Invalid user name/password</p>:''}
+    {this.state.loginError?<p className="error">{this.state.errorMessage}</p>:''}
                 <form className="form">
                 <input className="input" type="text" value={this.state.nameVal} onChange={(e)=>{this.inputNameChangeHandler(e)}} placeholder="Username" />
                 <input className="input" type="password" value={this.state.pwdVal} onChange={(e)=>{this.inputPasswordChangeHandler(e)}} placeholder="Password" />

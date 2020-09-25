@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../components/header/Header';
-import WeekComponent from '../components/molecules/WeekComponent';
-import DayComponent from '../components/molecules/DayComponent';
+import CalenderComponent from '../components/molecules/CalenderComponent';
+
 import '../../src/assets/css/dashboard.css';
 class Dashboard extends Component{
   
@@ -12,10 +12,7 @@ class Dashboard extends Component{
            <Header></Header>
            <div className="month-calender">
                
-                   <WeekComponent></WeekComponent>
-               
-              
-                   <DayComponent></DayComponent>
+                  <CalenderComponent></CalenderComponent>
               
            </div>
         </div>
