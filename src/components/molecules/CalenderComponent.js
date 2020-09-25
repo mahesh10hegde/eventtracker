@@ -67,7 +67,7 @@ export default function CalenderComponent() {
             
             return (
               
-              <div className="one-seventh day has-event"
+              <div className="one-seventh day"
                 key={index} id={d>0?d:"prevMonth"+(index+1)}
               >
                 { 
