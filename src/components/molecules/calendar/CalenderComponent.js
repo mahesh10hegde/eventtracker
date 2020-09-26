@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
+import { useHistory } from "react-router";
 export default function CalenderComponent() {
   const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -43,6 +42,7 @@ export default function CalenderComponent() {
     }
     getSchedules();
   }, []);
+  let history = useHistory();
   function getStartDayOfMonth(date) {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   }
@@ -50,7 +50,9 @@ export default function CalenderComponent() {
   function isLeapYear(year) {
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
   }
-
+  function handleEventDoubleClick(obj){
+    history.push("/createevent/"+obj.id);
+  }
   const days = isLeapYear ? DAYS_LEAP : DAYS;
   var daysArr = [];
   for(let i=0;i<days[month] + (startDay - 1);i++){
@@ -103,7 +105,7 @@ export default function CalenderComponent() {
                         return(
   
                          <div  key={val.id}> 
-                          <span className="event" id={val.id}>{val.name}</span>
+                          <span className="event" id={val.id} onDoubleClick={()=>{handleEventDoubleClick(val)}}>{val.name}</span>
                         </div>
                         )
                       })
