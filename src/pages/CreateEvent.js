@@ -41,11 +41,25 @@ class CreateEvent extends Component{
       this.setState({"hasError":true,"errorMessage":"fill all the required fields"});
     }
     else if(!this.isValidDate(dateVal)){
-      this.setState({"hasError":true,"errorMessage":"Enter correct date in dd/mm/yyyy format"});
+      this.setState({"hasError":true,"errorMessage":"Enter correct date of current month only in dd/mm/yyyy format"});
     }else if(!this.validateAttendees(attendees)){
       this.setState({"hasError":true,"errorMessage":"Enter correct attendees email ids"});
     }else{
       this.setState({"hasError":false,"errorMessage":''});
+      let data={"id":Date.now(),"name":meetingName,"description":meetingDesc,"attendees":attendees,"eventDate":dateVal};
+      fetch('http://localhost:3000/events', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        }).then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+          })
+          .catch(err=>{
+            console.error('Error:', err);
+          });
     }
   }
   validateAttendees(emailString){
@@ -81,8 +95,12 @@ isValidDate(dateString){
     var year = parseInt(parts[2], 10);
 
     // Check the ranges of month and year
-    if(year < 1000 || year > 3000 || month == 0 || month > 12)
-        return false;
+    var curMonth = new Date().getMonth()+1;
+    var curYear = new Date().getFullYear();
+    if(month!=curMonth || year!=curYear){
+      return false;
+    }
+       
 
     var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
@@ -102,8 +120,8 @@ isValidDate(dateString){
              <form id="eventCreationForm">
                {this.state.hasError?<p className="error">{this.state.errorMessage}</p>:''}
                 <div className="label-wrap">
-                  <label>Meeting date*</label>
-                  <input type="text" value={this.state.dateVal} onChange={this.handleDateChange}></input>
+                  <label>Enter meting date in dd/mm/yyyy format*</label>
+                  <input type="text" placeholder="" value={this.state.dateVal} onChange={this.handleDateChange}></input>
                 </div>
                 <div className="label-wrap">
                   <label>Meeting name*</label>
