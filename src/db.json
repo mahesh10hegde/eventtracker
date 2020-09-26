@@ -1,68 +1,100 @@
 {
-    "users":[
-        {"userName":"test","passWord":"test","token":"rsgwragw4arq3r325svrs1314wef4"},
-        {"userName":"mahesh","passWord":"mahesh","token":"rsgwragw4arq3r325svrs1314wef4"}
+    "users": [
+      {
+        "userName": "test",
+        "passWord": "test",
+        "token": "rsgwragw4arq3r325svrs1314wef4"
+      },
+      {
+        "userName": "mahesh",
+        "passWord": "mahesh",
+        "token": "rsgwragw4arq3r325svrs1314wef4"
+      }
     ],
-    "events":[
-        {"id":1,
-         "name":"meeting 1",
-         "description": "erewrg ergewrg",
-         "attendees":"a@b.com,d@c.com",
-         "eventDate":"29-09-2020"
-        },
-        {"id":2,
-        "name":"meeting 2",
+    "events": [
+      {
+        "id": 1,
+        "name": "meeting 1",
         "description": "erewrg ergewrg",
-        "attendees":"a@b.com,d@c.com",
-        "eventDate":"30-09-2020"
-        },
-        {"id":3,
-            "name":"meeting 3",
-            "description": "erewrg ergewrg",
-            "attendees":"a@b.com,d@c.com",
-            "eventDate":"19-09-2020"
-           },
-           {"id":4,
-           "name":"meeting 4",
-           "description": "erewrg ergewrg",
-           "attendees":"a@b.com,d@c.com",
-           "eventDate":"20-09-2020"
-           },
-           {"id":5,
-            "name":"meeting 5",
-            "description": "erewrg ergewrg",
-            "attendees":"a@b.com,d@c.com",
-            "eventDate":"29-09-2020"
-           },
-           {"id":6,
-           "name":"meeting 6",
-           "description": "erewrg ergewrg",
-           "attendees":"a@b.com,d@c.com",
-           "eventDate":"30-09-2020"
-           },
-           {"id":7,
-            "name":"meeting 7",
-            "description": "erewrg ergewrg",
-            "attendees":"a@b.com,d@c.com",
-            "eventDate":"12-09-2020"
-           },
-           {"id":8,
-           "name":"meeting 8",
-           "description": "erewrg ergewrg",
-           "attendees":"a@b.com,d@c.com",
-           "eventDate":"18-09-2020"
-           },
-           {"id":9,
-            "name":"meeting 9",
-            "description": "erewrg ergewrg",
-            "attendees":"a@b.com,d@c.com",
-            "eventDate":"16-09-2020"
-           },
-           {"id":10,
-           "name":"meeting 10",
-           "description": "erewrg ergewrg",
-           "attendees":"a@b.com,d@c.com",
-           "eventDate":"15-09-2020"
-           }
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "29/09/2020"
+      },
+      {
+        "id": 2,
+        "name": "meeting 2",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "30/09/2020"
+      },
+      {
+        "id": 3,
+        "name": "meeting 3",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "19/09/2020"
+      },
+      {
+        "id": 4,
+        "name": "meeting 4",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "20/09/2020"
+      },
+      {
+        "id": 5,
+        "name": "meeting 5",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "29/09/2020"
+      },
+      {
+        "id": 6,
+        "name": "meeting 6",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "30/09/2020"
+      },
+      {
+        "id": 7,
+        "name": "meeting 7",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "12/09/2020"
+      },
+      {
+        "id": 8,
+        "name": "meeting 8",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "18/09/2020"
+      },
+      {
+        "id": 9,
+        "name": "meeting 9",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "16/09/2020"
+      },
+      {
+        "id": 10,
+        "name": "meeting 10",
+        "description": "erewrg ergewrg",
+        "attendees": "a@b.com,d@c.com",
+        "eventDate": "15/09/2020"
+      },
+      {
+        "id": 1601137198018,
+        "name": "meeting test",
+        "description": "dummy content",
+        "attendees": "qwe@rty.com,asdf@ghj.com",
+        "eventDate": "30/09/2020"
+      },
+      {
+        "id": 1601140021390,
+        "name": "arge",
+        "description": "sargerwaghewh5",
+        "attendees": "qwe@ad.cv",
+        "eventDate": "20/09/2020"
+      }
     ]
-}
+  }

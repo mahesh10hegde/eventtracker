@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../components/header/Header';
 import '../../src/assets/css/eventform.css';
+import {withRouter} from 'react-router-dom';
 class CreateEvent extends Component{
   constructor(props){
     super(props);
@@ -11,12 +12,20 @@ class CreateEvent extends Component{
       meetingName:'',
       meetingDesc:'',
       attendees:'',
-      editMode:false
+      editMode:false,
+      editId:''
     }
   }
   componentDidMount(){
-    if(this.state.editMode){
-
+    var eventId=this.props.match.params.id;
+    if(eventId){
+      fetch('http://localhost:3000/events/'+eventId)
+      .then((res)=>res.json())
+      .then((data)=>{
+          this.setState({editId:data.id,editMode:true,meetingName:data.name,meetingDesc:data.description,attendees:data.attendees,dateVal:data.eventDate});
+      }).catch((err)=>{
+        console.log('error',err);
+      });
     }
   }
   handleDateChange = (e) =>{
@@ -47,8 +56,14 @@ class CreateEvent extends Component{
     }else{
       this.setState({"hasError":false,"errorMessage":''});
       let data={"id":Date.now(),"name":meetingName,"description":meetingDesc,"attendees":attendees,"eventDate":dateVal};
-      fetch('http://localhost:3000/events', {
-            method: 'POST',
+      let url ='http://localhost:3000/events';
+      let method = 'POST';
+      if(this.state.editMode){
+        url = 'http://localhost:3000/events/'+this.state.editId;
+        method = 'PUT';
+      }
+      fetch(url, {
+            method: method,
             body: JSON.stringify(data),
             headers: {
               'Content-Type': 'application/json'
@@ -56,6 +71,7 @@ class CreateEvent extends Component{
         }).then(response => response.json())
         .then(data => {
             console.log('Success:', data);
+            this.props.history.push('/dashboard');
           })
           .catch(err=>{
             console.error('Error:', err);
@@ -147,4 +163,4 @@ isValidDate(dateString){
   
 }
 
-export default CreateEvent;
+export default withRouter(CreateEvent);

@@ -19,6 +19,7 @@ class App extends Component{
               <Route  exact path="/" component={HomePage}></Route>
               <Route  exact path="/dashboard" component={Dashboard}></Route>
               <Route  exact path="/createevent" component={CreateEvent}></Route>
+              <Route  exact path="/createevent/:id" component={CreateEvent}></Route>
             </Switch>
           </Main>
           
