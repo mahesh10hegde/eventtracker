@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 
-import Main from './components/main/Main';
+import Main from './components/molecules/main/Main';
 import CreateEvent from './pages/CreateEvent';
 import Dashboard from './pages/Dashboard';
 

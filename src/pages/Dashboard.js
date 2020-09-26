@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/molecules/header/Header';
-import CalenderComponent from '../components/molecules/CalenderComponent';
+import CalenderComponent from '../components/molecules/calendar/CalenderComponent';
 
 import '../../src/assets/css/dashboard.css';
 class Dashboard extends Component{
