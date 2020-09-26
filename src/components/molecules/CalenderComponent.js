@@ -13,7 +13,7 @@ export default function CalenderComponent() {
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
-  const [eventsData, getEventsData] = useState(getSchedules());
+  const [eventsData, setSchedules] = useState([]);
 
   useEffect(() => {
     setDay(date.getDate());
@@ -21,27 +21,28 @@ export default function CalenderComponent() {
     setMonth(date.getMonth());
     setYear(date.getFullYear());
     setStartDay(getStartDayOfMonth(date));
-    getEventsData(getSchedules());
   }, [date]);
-
-  function getSchedules(){
-    fetch('http://localhost:3000/events', {
+  useEffect(() => {
+    async function getSchedules(){
+      fetch('http://localhost:3000/events', {
             method: 'GET'
         }).then(response => response.json())
         .then(data => {
             console.log('Success:', data);
             if(data.length){
-                
-              console.log('success')
-              return data;
+              console.log('success');
+              setSchedules(data);
             }else{
-               return [];
+              setSchedules([]);
             }
           })
           .catch(err=>{
             console.error('Error:', err);
+            setSchedules([]);
           });
-  }
+    }
+    getSchedules();
+  }, []);
   function getStartDayOfMonth(date) {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   }
@@ -54,11 +55,11 @@ export default function CalenderComponent() {
   var daysArr = [];
   for(let i=0;i<days[month] + (startDay - 1);i++){
     var appointments=[];
-    // for(let j=0;j<eventsData.length;j++){
-    //   if(eventsData[j].eventDate.split("-")[0]===i - (startDay - 2)){
-    //     appointments.push(eventsData[j])
-    //   };
-    // }
+    for(let j=0;j<eventsData.length;j++){
+      if(eventsData[j].eventDate.split("-")[0]===(i - (startDay - 2))){
+        appointments.push(eventsData[j])
+      };
+    }
     if(i - (startDay - 2)>0){
       daysArr.push({
         id:i,
@@ -96,12 +97,13 @@ export default function CalenderComponent() {
                 <div className="one-seventh day has-event"
                   key={index} id={d>0?d:"prevMonth"+(index+1)}
                 >
+                  <div><span>{d}</span></div>
                   { 
                      item.appointments.map((val)=>{
                         return(
   
-                         <div  key={val.id}> <span>{d}</span>
-                        <span>{val.eventName}</span>
+                         <div  key={val.id}> 
+                          <span className="event">{val.name}</span>
                         </div>
                         )
                       })
