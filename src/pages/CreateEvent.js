@@ -16,8 +16,20 @@ class CreateEvent extends Component{
   }
   componentDidMount(){
     if(this.state.editMode){
-      
+
     }
+  }
+  handleDateChange = (e) =>{
+    this.setState({"dateVal":e.target.value});
+  }
+  handleMeetingNameChange = (e) =>{
+    this.setState({"meetingName":e.target.value});
+  }
+  handleMeetingDescChange = (e) =>{
+    this.setState({"meetingDesc":e.target.value});
+  }
+  handleAttendeesChange = (e) =>{
+    this.setState({"attendees":e.target.value});
   }
   render(){
     return (
@@ -28,19 +40,19 @@ class CreateEvent extends Component{
              <form id="eventCreationForm">
                 <div className="label-wrap">
                   <label>Meeting date</label>
-                  <input type="text" value={this.state.dateVal}></input>
+                  <input type="text" value={this.state.dateVal} onChange={this.handleDateChange}></input>
                 </div>
                 <div className="label-wrap">
                   <label>Meeting name</label>
-                  <input type="text" value={this.state.meetingName}></input>
+                  <input type="text" value={this.state.meetingName} onChange={this.handleMeetingNameChange}></input>
                 </div>
                 <div className="label-wrap">
                   <label>Meeting description</label>
-                  <textarea type="date" value={this.state.meetingDesc}></textarea>
+                  <textarea type="date" value={this.state.meetingDesc} onChange={this.handleMeetingDescChange}></textarea>
                 </div>
                 <div className="label-wrap">
                   <label>Meeting Attendees</label>
-                  <input type="text" value={this.state.attendees}></input>
+                  <input type="text" value={this.state.attendees} onChange={this.handleAttendeesChange}></input>
                 </div>
                 <div className="button-wrap">
                   <button className="submit-btn">Submit</button>

@@ -31,7 +31,7 @@ class HomePage extends Component{
               console.log('success')
               this.props.history.push('/dashboard');
             }else{
-                this.setState({"loginError":true,errorMessage:"Wrong user name or password"});
+                this.setState({"loginError":true,errorMessage:"Invalida crentials"});
             }
           })
           .catch(err=>{
@@ -52,8 +52,8 @@ class HomePage extends Component{
                 <p className="header">Login page</p>
     {this.state.loginError?<p className="error">{this.state.errorMessage}</p>:''}
                 <form className="form">
-                <input className="input" type="text" value={this.state.nameVal} onChange={(e)=>{this.inputNameChangeHandler(e)}} placeholder="Username" />
-                <input className="input" type="password" value={this.state.pwdVal} onChange={(e)=>{this.inputPasswordChangeHandler(e)}} placeholder="Password" />
+                <input className="input" type="text" value={this.state.nameVal} onChange={this.inputNameChangeHandler} placeholder="Username" />
+                <input className="input" type="password" value={this.state.pwdVal} onChange={this.inputPasswordChangeHandler} placeholder="Password" />
                 <button className="submit" onClick={this.handleLogin}>Sign in</button>
                 </form>
             </div>
