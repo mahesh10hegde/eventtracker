@@ -24,7 +24,7 @@ export default function CalenderComponent() {
   }, [date]);
   useEffect(() => {
     async function getSchedules(){
-      fetch('http://localhost:3000/events', {
+      const res=fetch('http://localhost:3000/events', {
             method: 'GET'
         }).then(response => response.json())
         .then(data => {
@@ -56,9 +56,9 @@ export default function CalenderComponent() {
   for(let i=0;i<days[month] + (startDay - 1);i++){
     var appointments=[];
     for(let j=0;j<eventsData.length;j++){
-      if(eventsData[j].eventDate.split("-")[0]===(i - (startDay - 2))){
-        appointments.push(eventsData[j])
-      };
+      if(eventsData[j].eventDate.split("-")[0]==(i - (startDay - 2))){
+        appointments.push(eventsData[j]);
+      }
     }
     if(i - (startDay - 2)>0){
       daysArr.push({

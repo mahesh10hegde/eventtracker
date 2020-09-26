@@ -27,9 +27,10 @@ body{
     background-color: #ccc;
 }
 .day{
-    padding: 5% 7%;
+    padding: 5px;
     cursor: pointer;
-    height: 100px;
+    min-height: 150px;
+    text-align: left;
 }
 .one-seventh.day:nth-child(7n-6) {
     border-left: 1px solid #333;
@@ -42,6 +43,19 @@ body{
 .calendar-container{
     margin: 10px 0;
 }
-.has-event{
+.has-event:before{
     background-color: lightblue;
+    width: 13px;
+    height: 13px;
+    content: "";
+    border: 1px solid lightblue;
+    border-radius: 50%;
+    display: inline-block;
+}
+.has-event span.event{
+    display: block;
+    margin-bottom: 3px;
+    border: 1px solid #333;
+    background: lightblue;
+    color: #333333;
 }
