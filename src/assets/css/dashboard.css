@@ -29,7 +29,7 @@ body{
 .day{
     padding: 5px;
     cursor: pointer;
-    min-height: 150px;
+    min-height: 120px;
     text-align: left;
 }
 .one-seventh.day:nth-child(7n-6) {
