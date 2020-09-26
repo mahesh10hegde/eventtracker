@@ -102,6 +102,27 @@
       "description": "new meeting desc",
       "attendees": "new@new.com,nm@qw.com",
       "eventDate": "04/09/2020"
+    },
+    {
+      "id": 1601144763004,
+      "name": "monthly meeting",
+      "description": "monthly updates meeting",
+      "attendees": "asdf@qwert.com,zxcv@asdf.com,zxcv@qwer.com,asdf@zxcv.com",
+      "eventDate": "01/09/2020"
+    },
+    {
+      "id": 1601145070502,
+      "name": "w4ay",
+      "description": "",
+      "attendees": "a4wt@esg.qw",
+      "eventDate": "22/09/2020"
+    },
+    {
+      "id": 1601145123919,
+      "name": "bi weekly meeting",
+      "description": "bi weekly meeting updates",
+      "attendees": "qwe@asd.com,asdf@qwe.com",
+      "eventDate": "08/09/2020"
     }
   ]
 }
