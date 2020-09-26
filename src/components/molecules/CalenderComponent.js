@@ -103,7 +103,7 @@ export default function CalenderComponent() {
                         return(
   
                          <div  key={val.id}> 
-                          <span className="event">{val.name}</span>
+                          <span className="event" id={val.id}>{val.name}</span>
                         </div>
                         )
                       })
