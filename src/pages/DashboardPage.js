@@ -1,1 +1,1 @@
-export {default} from '../components/organisms/Dashboard';
+export {default} from '../components/templates/Dashboard';

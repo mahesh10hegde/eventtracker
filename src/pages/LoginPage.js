@@ -1,1 +1,1 @@
-export {default} from '../components/organisms/Login';
+export {default} from '../components/templates/Login';

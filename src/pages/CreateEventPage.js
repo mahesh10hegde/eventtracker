@@ -1,1 +1,1 @@
-export {default} from '../components/organisms/CreateEvent';
+export {default} from '../components/templates/CreateEvent';
