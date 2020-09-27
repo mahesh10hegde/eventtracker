@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Header from '../components/molecules/header/Header';
-import '../../src/assets/css/eventform.css';
+import Header from '../molecules/header/Header';
+import '../../assets/css/eventform.css';
 import {withRouter} from 'react-router-dom';
 class CreateEvent extends Component{
   constructor(props){

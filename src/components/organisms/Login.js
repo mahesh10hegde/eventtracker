@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../../src/assets/css/login.css';
+import '../../assets/css/login.css';
 import {withRouter} from 'react-router-dom';
-class HomePage extends Component{
+class Login extends Component{
   constructor(props){
     super(props);
     this.state={
@@ -62,4 +62,4 @@ class HomePage extends Component{
     }
 }
 
-export default withRouter(HomePage);
+export default withRouter(Login);

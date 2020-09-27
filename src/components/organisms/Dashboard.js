@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Header from '../components/molecules/header/Header';
-import CalenderComponent from '../components/molecules/calendar/CalenderComponent';
+import Header from '../molecules/header/Header';
+import CalenderComponent from '../molecules/calendar/CalenderComponent';
 
-import '../../src/assets/css/dashboard.css';
+import '../../assets/css/dashboard.css';
 class Dashboard extends Component{
   
   render(){
