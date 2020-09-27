@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from 'react';
 import { useHistory } from "react-router";
+import Modal from '../../../utility/Modal';
 export default function CalenderComponent() {
   const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -13,6 +14,7 @@ export default function CalenderComponent() {
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
   const [eventsData, setSchedules] = useState([]);
+  const [isPopupOpened, setModalStatus] = useState(false);
 
   useEffect(() => {
     setDay(date.getDate());
@@ -53,6 +55,12 @@ export default function CalenderComponent() {
   function handleEventDoubleClick(obj){
     history.push("/createevent/"+obj.id);
   }
+  function toggleModal(obj){
+    setModalStatus(!isPopupOpened);
+  }
+  function handleEventOnClick(obj){
+    setModalStatus(!isPopupOpened);
+  }
   const days = isLeapYear ? DAYS_LEAP : DAYS;
   var daysArr = [];
   for(let i=0;i<days[month] + (startDay - 1);i++){
@@ -65,12 +73,14 @@ export default function CalenderComponent() {
     if(i - (startDay - 2)>0){
       daysArr.push({
         id:i,
-        appointments:appointments
+        appointments:appointments,
+        isPopupOpened:false
       });
     }else{
       daysArr.push({
         id:"prevMOnth"+i,
-        appointments:appointments
+        appointments:appointments,
+        isPopupOpened:false
       });
     }
   }
@@ -78,7 +88,7 @@ export default function CalenderComponent() {
   return (
     <div className="calendar-container">
       <div>
-       
+      
         <div className="calendar-header">
           {MONTHS[month]} {year}
         </div>
@@ -105,8 +115,10 @@ export default function CalenderComponent() {
                         return(
   
                          <div  key={val.id}> 
-                          <span className="event" id={val.id} onDoubleClick={()=>{handleEventDoubleClick(val)}}>{val.name}</span>
+                            <Modal show={val.isPopupOpened} onClose={()=>{toggleModal(val)}}><h2>{val.name}</h2><div className="attendeesInfo">Attendees:{val.attendees}</div><div className="eventDate">Date: {val.eventDate}</div><div className="eventInfo">{val.description}</div></Modal>
+                          <span className="event" id={val.id} onDoubleClick={()=>{handleEventDoubleClick(val)}} onMouseEnter={()=>{handleEventOnClick(val)}}>{val.name}</span>
                         </div>
+                        
                         )
                       })
                     }

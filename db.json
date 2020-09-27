@@ -21,7 +21,7 @@
     },
     {
       "id": 2,
-      "name": "meeting 22",
+      "name": "meeting 2",
       "description": "erewrg ergewrg",
       "attendees": "a@b.com,d@c.com",
       "eventDate": "30/09/2020"
@@ -105,7 +105,7 @@
     },
     {
       "id": 1601144763004,
-      "name": "monthly meeting",
+      "name": "monthly meeting1",
       "description": "monthly updates meeting",
       "attendees": "asdf@qwert.com,zxcv@asdf.com,zxcv@qwer.com,asdf@zxcv.com",
       "eventDate": "01/09/2020"
@@ -123,6 +123,13 @@
       "description": "bi weekly meeting updates",
       "attendees": "qwe@asd.com,asdf@qwe.com",
       "eventDate": "08/09/2020"
+    },
+    {
+      "id": 1601194705149,
+      "name": "wa4tgw4t",
+      "description": "",
+      "attendees": "serg4w@srg.seg",
+      "eventDate": "02/09/2020"
     }
   ]
 }
